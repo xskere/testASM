@@ -1,11 +1,9 @@
 global riscv2:function
-extern printf
 
 section .text
 riscv2:
 	push rbx
-    mov     rbx, rdi	; rbx = char* text
-    mov     r10, rsi    ; r10 = FILE* fout
+    mov     rbx, rdi	; rbx = char* line
 
 
 	.loopLine:	
@@ -43,7 +41,7 @@ riscv2:
 			inc r8
 			inc rbx
 			jne .noPrint
-			j .readNextByteThirdField
+			jmp .readNextByteThirdField
 			.notFirstTimeThird:
 			cmp byte[rbx], 0x3B
 			inc rbx
@@ -59,82 +57,82 @@ riscv2:
 			inc rbx
 			dec rcx
 			dec rcx
-			j .readNextByteFourthField
+			jmp .readNextByteFourthField
 
 			.notFirstTimeFourth:
 
 			cmp byte[rbx], 0x30
-			jeq .zeroFourth
+			je .zeroFourth
 			cmp byte[rbx], 0x31
-			jeq .oneFourth
+			je .oneFourth
 			cmp byte[rbx], 0x32
-			jeq .twoFourth
+			je .twoFourth
 			cmp byte[rbx], 0x33
-			jeq .threeFourth
+			je .threeFourth
 			cmp byte[rbx], 0x34
-			jeq .fourFourth
+			je .fourFourth
 			cmp byte[rbx], 0x35
-			jeq .fiveFourth
+			je .fiveFourth
 			cmp byte[rbx], 0x36
-			jeq .sixFourth
+			je .sixFourth
 			cmp byte[rbx], 0x37
-			jeq .sevenFourth
+			je .sevenFourth
 			cmp byte[rbx], 0x38
-			jeq .eightFourth
+			je .eightFourth
 			cmp byte[rbx], 0x39
-			jeq .nineFourth
+			je .nineFourth
 
-			j .noPrint
+			jmp .noPrint
 
 			.zeroFourth:
 			xor rdx, rdx
 			add rdx, 0
-			j .mulFourth
+			jmp .mulFourth
 
 			.oneFourth:
 			xor rdx, rdx
 			add rdx, 1
-			j .mulFourth
+			jmp .mulFourth
 
 			.twoFourth:
 			xor rdx, rdx
 			add rdx, 2
-			j .mulFourth
+			jmp .mulFourth
 
 			.threeFourth:
 			xor rdx, rdx
 			add rdx, 3
-			j .mulFourth
+			jmp .mulFourth
 
 			.fourFourth:
 			xor rdx, rdx
 			add rdx, 4
-			j .mulFourth
+			jmp .mulFourth
 
 			.fiveFourth:
 			xor rdx, rdx
 			add rdx, 5
-			j .mulFourth
+			jmp .mulFourth
 
 			.sixFourth:
 			xor rdx, rdx
 			add rdx, 6
-			j .mulFourth
+			jmp .mulFourth
 
 			.sevenFourth:
 			xor rdx, rdx
 			add rdx, 7
-			j .mulFourth
+			jmp .mulFourth
 
 			.eightFourth:
 			xor rdx, rdx
 			add rdx, 8
-			j .mulFourth
+			jmp .mulFourth
 
 			.nineFourth:
 			xor rdx, rdx
 			add rdx, 9
-			j .mulFourth
+			jmp .mulFourth
 
 			.mulFourth:
 
@@ -167,82 +165,82 @@ riscv2:
 			inc rbx
 			dec rcx
 			dec rcx
-			j .readNextByteFifthField
+			jmp .readNextByteFifthField
 
 			.notFirstTimeFifth:
 
 			cmp byte[rbx], 0x30
-			jeq .zeroFifth
+			je .zeroFifth
 			cmp byte[rbx], 0x31
-			jeq .oneFifth
+			je .oneFifth
 			cmp byte[rbx], 0x32
-			jeq .twoFifth
+			je .twoFifth
 			cmp byte[rbx], 0x33
-			jeq .threeFifth
+			je .threeFifth
 			cmp byte[rbx], 0x34
-			jeq .fourFifth
+			je .fourFifth
 			cmp byte[rbx], 0x35
-			jeq .fiveFifth
+			je .fiveFifth
 			cmp byte[rbx], 0x36
-			jeq .sixFifth
+			je .sixFifth
 			cmp byte[rbx], 0x37
-			jeq .sevenFifth
+			je .sevenFifth
 			cmp byte[rbx], 0x38
-			jeq .eightFifth
+			je .eightFifth
 			cmp byte[rbx], 0x39
-			jeq .nineFifth
+			je .nineFifth
 
-			j .noPrint
+			jmp .noPrint
 
 			.zeroFifth:
 			xor rdx, rdx
 			add rdx, 0
-			j .mulFifth
+			jmp .mulFifth
 
 			.oneFifth:
 			xor rdx, rdx
 			add rdx, 1
-			j .mulFifth
+			jmp .mulFifth
 
 			.twoFifth:
 			xor rdx, rdx
 			add rdx, 2
-			j .mulFifth
+			jmp .mulFifth
 
 			.threeFifth:
 			xor rdx, rdx
 			add rdx, 3
-			j .mulFifth
+			jmp .mulFifth
 
 			.fourFifth:
 			xor rdx, rdx
 			add rdx, 4
-			j .mulFifth
+			jmp .mulFifth
 
 			.fiveFifth:
 			xor rdx, rdx
 			add rdx, 5
-			j .mulFifth
+			jmp .mulFifth
 
 			.sixFifth:
 			xor rdx, rdx
 			add rdx, 6
-			j .mulFifth
+			jmp .mulFifth
 
 			.sevenFifth:
 			xor rdx, rdx
 			add rdx, 7
-			j .mulFifth
+			jmp .mulFifth
 
 			.eightFifth:
 			xor rdx, rdx
 			add rdx, 8
-			j .mulFifth
+			jmp .mulFifth
 
 			.nineFifth:
 			xor rdx, rdx
 			add rdx, 9
-			j .mulFifth
+			jmp .mulFifth
 
 			.mulFifth:
 
@@ -267,7 +265,7 @@ riscv2:
 			mov ax, r10
 			div r11
 			cmp dx, 0
-			jeq .noPrint
+			je .noPrint
 
 		.readNextByteSixthField:
 			cmp byte[rbx], 0x3B
@@ -278,7 +276,3 @@ riscv2:
 	.noPrint:
 		pop rbx
 		ret
-
-section .data
-	asciiSemicolon	db	0x3B
-	asciiA			db	0x41
